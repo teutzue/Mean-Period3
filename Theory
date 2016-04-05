@@ -142,3 +142,6 @@ Reasons:
         Horizontally scalable
         Schema-less
     Uses aggregates to store objects as units
+
+    TODO: for number 8. provide a scalability example
+          do, 9, 10.
