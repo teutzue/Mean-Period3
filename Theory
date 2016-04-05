@@ -1,0 +1,144 @@
+
+1. Explain, generally, what is meant by a NoSQL database.
+
+NoSql is a reaction to traditional databases which split data in a lot of tables(impedance mismatch).
+
+NoSQL (often interpreted as Not only SQL) databases provides a mechanism for storage and retrieval of data that is
+modeled in means other than the tabular relations used in relational databases.
+
+Motivations for this approach include:
+- simplicity of design (no more tabels),
+- simpler "horizontal" scaling (a problem for traditional db) to clusters of machines (means to add more nodes to (or
+remove nodes from) a system, such as adding a new computer to a distributed software application.),
+- finer control over availability.
+- schemaless
+
+NoSql databases have the following data structures:
+
+- key-value: the key is tha aggregate
+- document: each document is a complex data model > as JSON, the document is the aggregate
+- graph: easy to navigate through "relations" (check again this statement!)
+
+NoSql databases:
+
+- are not relational
+- are cluster friendly
+- open source
+- obey the BASE (lookup) model vs ACID
+
+When to use Nosql:
+Do not just pick it because it's popular and cool
+
+- scalability (some operations are faster, some not)
+- easier development
+- when you have a natural aggregate (a natural real life "object")
+- when you want to get rid of the impedance mismatch
+
+2. Explain Pros & Cons in using a NoSQL db like MongoDb, compared to a Relational SQL db like MySql
+
+Pros:
+
+- do not need a schema (as opposed to RDBMS)
+- easy to model the business, cost of change cheap (as opposed to MySql where you have to build the whole db again)
+- easy to handle
+- more flexible (as opposed to getting, storing info in different tables)
+- highly scalable (MySql could not scale)
+- decrease cost of development (ready to go, document based storage)
+- simplification of code base
+- horizontally scalable, add more helping units (as opposed to a rigid way with RDBMS)
+- no need for normalization (the rows transform in JSON and joins turn into Embedded Documents)
+- best used for e-commerce
+- good for apps that do reading of data
+
+
+Cons:
+
+- no joins (trade off for scaliz horizontally)
+- no multi-document transations (mySql exceedes at this): not good for bank apps, cannot guarantee transactions
+- only document level atomic opperations provided
+- cannot write queries that use more than one collection
+- not good for writing data
+- lack of reporting tools since is a new tech
+
+3. Explain why dbs like MongoDb and redis would be classified in the NoSql world
+
+Mongodb belongs to NoSql because:
+
+- the data type mongodb uses is "Document based pair" which falls under the 4 types defined by NoSql
+- is schemaless
+- stores all data in documents
+- stores documents on disk in the BSON serialization forma
+- documents are composed of field-and-value pairs and have the following structure
+- The value of a field can be any of the BSON data types, including other documents, arrays, and arrays of documents
+
+Redis is an open source (BSD licensed), in-memory data structure store, used as database, cache and message broker.
+
+Reddis belongs to NoSql because:
+
+- main reason is that it uses key-value pieces of data which fall under teh 4 types of data strustures defined by noSQL
+- Redis maps keys to types of values.
+- can add clusters
+- ADD MORE!
+
+4. Explain reasons to add a layer like Mongoose, on top of a schema-less database like MongoDb
+
+Reasons:
+- offers more functionality than pure mongo
+- we want an object modelling tool (real life data has often structure)
+- we want schemas
+- built in type casting
+- validation
+- query building
+- we want to work fast
+
+5. Explain, using relevant examples, the strategy for querying MongoDB (all CRUD operations)
+
+    SEE jokeFacade.js
+
+6. Demonstrate, using a REST-API, how to perform all CRUD operations on a MongoDb.
+
+    SEE jokeApi.js
+
+7. Explain the benefits of using Mongoose, and provide qn example involving all CRUD operations.
+
+    Mongoose is an object modeling tool for MongoDB and Node.js, somehow similar to a ORM tool as we know
+
+    Mongoose provides a straight-forward, schema-based solution to modeling your application data and includes, out of the box:
+
+    Schemas
+    Built-in type casting
+    Validation (also include with plain MongoDB as of v. 3.2)
+    Query building
+    Business logic hooks (middleware)
+
+    -Why do we want to use mongoose when nosql is schemaless?
+
+    Because:
+
+    - Real life data has (often) structure
+    - Real life data has (often) types
+    - We want to do more with less work ;-)
+    - Basically, same arguments as why use a ORM with a relational database
+
+8. Explain how redis "fits" into the nosql world, and provide an example of how to use it.
+
+    What is Redis
+    Redis is an open source, in-memory persistent key-value store.
+    REmote DIctionary Server
+    Redis is known for being extremely fast
+    But Redis is more than just a simple key-value store. Keys can contain "advanced" structures such as:
+
+        Strings
+        Hashes
+        Lists
+        Sets
+        Sorted sets
+
+    Db wich is highly scalable and can handle data complexity.
+    Redis is:
+        Non-relational
+        Distributed
+        Open-source
+        Horizontally scalable
+        Schema-less
+    Uses aggregates to store objects as units
